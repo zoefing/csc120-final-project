@@ -1,0 +1,12 @@
+// start keeping track of time when game loop starts
+long startTime = System.currentTimeMillis();
+long elapsedTime = System.currentTimeMillis() - startTime;
+long elapsedSeconds = elapsedTime / 1000;
+long secondsDisplay = elapsedSeconds % 60;
+long elapsedMinutes = elapsedSeconds / 60;
+            
+// convert time to minutes and seconds as a string
+String timeString = elapsedMinutes + " minutes and " + secondsDisplay + " seconds";
+
+// in end game
+System.out.println("You took: " + timeString + " to complete the game.");

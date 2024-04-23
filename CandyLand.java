@@ -8,8 +8,12 @@ public class CandyLand {
     int life = 20;
     int points = 0;
     int location = 0;
+
     boolean gingerbreadManDefeated = false;
     boolean candyCaneManDefeated = false;
+
+    int lifeLost = 0;
+    int bossesKilled = 0;
 
     // methods
 
@@ -19,8 +23,8 @@ public class CandyLand {
         int cardNum = ThreadLocalRandom.current().nextInt(1, 10);
         System.out.println("You drew a: " + cardNum);
         location += cardNum;
-        if (location >= 100) {
-            location = 100;
+        if (location >= 50) {
+            location = 50;
         }
         else {
             System.out.println("You are currently at square " + location);
@@ -40,6 +44,7 @@ public class CandyLand {
         if (diceNum >= 2) {
             // set boolean to true
             gingerbreadManDefeated = true;
+            bossesKilled += 1;
             // offer player options for reward
             System.out.println("You beat the Gingerbread Man! \nYou earned a gingerbread cookie (1). \nWhat would you like to do with this cookie? \nType 'life' to gain +2 health or type 'move' to advance 10 squares.");
             String userInput = sc.nextLine();
@@ -65,9 +70,14 @@ public class CandyLand {
             int repercussions = ThreadLocalRandom.current().nextInt(1, 2);
             if (repercussions == 1) {
                 life -= 1; // subject to change, placeholder
+                lifeLost -= 1;
+                System.out.println("-1 life...");
+                System.out.println("New life: " + life);
             }
             if (repercussions == 2) {
                 location -= 5; // subject to change, placeholder
+                System.out.println("-5 tiles...");
+                System.out.println("New location: " + location);
             }
         }
     }
@@ -84,6 +94,7 @@ public class CandyLand {
         if (diceNum >= 3) {
             // set boolean to true
             candyCaneManDefeated = true;
+            bossesKilled += 1;
             // offer player options for reward
             System.out.println("You beat the Candy Cane Man! \nYou earned a candy cane (1). \nWhat would you like to do with this candy cane? \nType 'life' to gain +5 health or type 'move' to advance 15 squares.");
             String userInput = sc.nextLine();
@@ -109,9 +120,14 @@ public class CandyLand {
             int repercussions = ThreadLocalRandom.current().nextInt(1, 2);
             if (repercussions == 1) {
                 life -= 4; // subject to change, placeholder
+                lifeLost -= 4;
+                System.out.println("-4 life...");
+                System.out.println("New life: " + life);
             }
             if (repercussions == 2) {
                 location -= 10; // subject to change, placeholder
+                System.out.println("-10 tiles...");
+                System.out.println("New location: " + location);
             }
         }
     }
@@ -120,6 +136,7 @@ public class CandyLand {
     public static void main(String[] args) {
         // initialize game
         boolean playing = true;
+
         System.out.println("Welcome to CandyLand!");
         // create game object
         CandyLand game = new CandyLand();
@@ -131,11 +148,18 @@ public class CandyLand {
         // main game loop
         while (playing) {
             // check if player in end game
-            if (game.location == 100) {
+            if (game.location == 50) {
                 // initalize end game
                 System.out.println("You are at the end of the board!");
                 System.out.println("Game over!");
                 // ideally, print achievements here
+                if (game.bossesKilled == 1) {
+                    System.out.println("You killed: " + game.bossesKilled + " boss");
+                }
+                else if (game.bossesKilled > 1) {
+                    System.out.println("You killed: " + game.bossesKilled + " bosses");
+                }
+                System.out.println("You lost: " + game.lifeLost + " life");
                 // i.e., you beat x bosses, you took x time, you lost x life
                 break;
             }
