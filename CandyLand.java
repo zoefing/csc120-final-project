@@ -153,7 +153,10 @@ public class CandyLand {
                 System.out.println("You are at the end of the board!");
                 System.out.println("Game over!");
                 // ideally, print achievements here
-                if (game.bossesKilled == 1) {
+                if (game.bossesKilled == 0) {
+                    System.out.println("You killed: " + game.bossesKilled + " bosses. " + "So peaceful!");
+                }
+                else if (game.bossesKilled == 1) {
                     System.out.println("You killed: " + game.bossesKilled + " boss");
                 }
                 else if (game.bossesKilled > 1) {
