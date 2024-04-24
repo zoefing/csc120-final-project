@@ -16,6 +16,9 @@ public class CandyLand {
         // create bosses
         Boss GingerbreadMan = new Boss("Gingerbread Man", 2, 1);
         Boss CandyCaneMan = new Boss("Candy Cane Man", 3, 2);
+        Boss GumDropMan = new Boss("Gumdrop Man", 2, 5);
+        Boss LordLicorice = new Boss("Lord Licorice", 4, 3);
+        Boss PrincessFrostine = new Boss("Princess Frostine", 5, 5);
 
         // create controls
         Controls Controls = new Controls();
@@ -42,10 +45,10 @@ public class CandyLand {
                 // draw card
                 Controls.drawCard(player);
 
-                // check if player in boss areas
+                // check if player in active areas
 
                 // gingerbread
-                if (player.location >= 10 && player.location <= 20) {
+                if (player.location >= 4 && player.location <= 10) {
                     // check if boss defeated
                     if (GingerbreadMan.defeated == false) {
                         // offer player option to fight
@@ -54,13 +57,50 @@ public class CandyLand {
                     }
                 } 
 
+                //rainbow bridges
+                if (player.location == 11 || player.location == 31) {
+                    System.out.println("You have landed on a rainbow bridge! You advance 10 squares."); //print lines for readability
+                    player.location += 10;
+                    System.out.println("You are now at tile " + player.location + ". Input 'draw' to continue, input 'quit' to end game.");
+                }
+
                 // candy cane
-                if (player.location >= 30 && player.location <= 40) {
+                if (player.location >= 14 && player.location <= 20) {
                     // check if boss defeated
                     if (CandyCaneMan.defeated == false) {
                         // offer player option to fight
                         CandyCaneMan.enterArea();
                         CandyCaneMan.offerFight(player);
+                    }
+                } 
+
+                // gumdrop
+                if (player.location >= 24 && player.location <= 30) {
+                    // check if boss defeated
+                    if (GumDropMan.defeated == false) {
+                        // offer player option to fight
+                        GumDropMan.enterArea();
+                        GumDropMan.offerFight(player);
+                    }
+                } 
+
+                 // Lord Licorice
+                 if (player.location >= 34 && player.location <= 40) {
+                    // check if boss defeated
+                    if (LordLicorice.defeated == false) {
+                        // offer player option to fight
+                        LordLicorice.enterArea();
+                        LordLicorice.offerFight(player);
+                    }
+                } 
+
+                // Princess Frostine
+                if (player.location >= 44 && player.location <= 50) {
+                    // check if boss defeated
+                    if (PrincessFrostine.defeated == false) {
+                        // offer player option to fight
+                        PrincessFrostine.enterArea();
+                        PrincessFrostine.offerFight(player);
                     }
                 } 
             }
