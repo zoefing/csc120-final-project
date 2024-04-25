@@ -11,6 +11,7 @@ public class Controls {
         }
         else {
             System.out.println("You are currently at square " + player.location);
+            betweenLines();
             System.out.println("Input 'draw' to continue, input 'quit' to end game.");
         }
     }
@@ -31,5 +32,11 @@ public class Controls {
         }
         System.out.println("You lost: " + player.lifeLost + " life");
         // i.e., you beat x bosses, you took x time, you lost x life
+    }
+    
+    public void betweenLines() {
+        System.out.println("");
+        System.out.println("ʚ𖦹ɞ");
+        System.out.println("");
     }
 }

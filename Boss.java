@@ -19,6 +19,68 @@ public class Boss {
     // methods
     public void enterArea() {
         System.out.println("You are in the territory of the " + name + "!");
+        flair();
+    }
+
+    public void flair() {
+        if (this.name.equals("Gingerbread Man")) {
+            System.out.println("     ,-.\n" + //
+                                "   _(*_*)_\n" + //
+                                "  (_  o  _)\n" + //
+                                "    / o \\\n" + //
+                                "   (_/ \\_)");
+            
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+        }
+        else if (this.name.equals("Candy Cane Man")) {
+            System.out.println("           _._\n" + //
+                                "         /\\|/\\\n" + //
+                                "        /\\/ )-|\n" + //
+                                "       /\\/  `\"\n" + //
+                                "      /\\/\n" + //
+                                "     /\\/\n" + //
+                                "    /\\/\n" + //
+                                "   /\\/\n" + //
+                                "   `\"");
+            
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+        }
+        else if (this.name.equals("Gumdrop Man")) {
+            System.out.println("");
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+        }
+        else if (this.name.equals("Lord Licorice")) {
+            // art
+            System.out.println("      ___      .-\"\"-.      ___\n" + //
+                                "      \\  \"-.  /      \\  .-\"  /\n" + //
+                                "       > -=.\\/        \\/.=- <\n" + //
+                                "       > -='/\\        /\\'=- <\n" + //
+                                "      /__.-'  \\      /  '-.__\\\n" + //
+                                "               '-..-'");
+            
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+        }
+        else if (this.name.equals("Princess Frostine")) {
+            // art
+            System.out.println("         _\n" + //
+                                "       ,' `,.\n" + //
+                                "       >-.(__)\n" + //
+                                "      (_,-' |\n" + //
+                                "        `.  |\n" + //
+                                "          `.| \n" + //
+                                "            `");
+            
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+        }
     }
 
     public void offerFight(Player player) {
@@ -64,6 +126,10 @@ public class Boss {
             // print success message
             System.out.println("You beat the " + name + "!");   
 
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+
             // reward player
             Reward Reward = new Reward("name", health * 2, health * 5); // temp values
             Reward.rewardOptions(player);
@@ -77,6 +143,10 @@ public class Boss {
             // print failure message
             System.out.println("You failed to defeat the " + name + ".");
             
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+
             // subtract from life
             player.life -= damage;
             System.out.println("-" + damage + " life...");
@@ -88,7 +158,6 @@ public class Boss {
             System.out.println("New life: " + player.life);
             
             // exit
-            Controls Controls = new Controls();
             Controls.drawCard(player);
         }
     }

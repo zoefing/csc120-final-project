@@ -37,17 +37,23 @@ public class Reward {
         player.location += locationGain;
         System.out.println("You moved " + locationGain + " tiles! You are now at tile " + player.location + ".");
         
-        // exit
+        // add space
         Controls Controls = new Controls();
-        Controls.drawCard(player);
+        Controls.betweenLines();
+
+        // exit
+        System.out.println("Input 'draw' to draw a card, input 'quit' to end game");
     }
 
     public void rewardLife(Player player) {
         player.life += healthGain;
         System.out.println("You gained " + healthGain + " health! You now have " + player.life + " health.");
 
-        // exit
+        // add space
         Controls Controls = new Controls();
-        Controls.drawCard(player);
+        Controls.betweenLines();
+
+        // exit
+        System.out.println("Input 'draw' to draw a card, input 'quit' to end game");
     }
 }
