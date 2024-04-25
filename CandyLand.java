@@ -142,7 +142,7 @@ public class CandyLand {
         else {
             System.out.println("Game over! You died.");
             break;
-        }
+        } //game over
     }
         // close scanner
         sc.close();
