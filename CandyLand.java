@@ -11,14 +11,14 @@ public class CandyLand {
         System.out.println("Welcome to CandyLand!");
 
         // create player
-        Player player = new Player("Player", 10, 0);
+        Player player = new Player("Player", 5, 0);
 
         // create bosses
-        Boss GingerbreadMan = new Boss("Gingerbread Man", 2, 1);
-        Boss CandyCaneMan = new Boss("Candy Cane Man", 3, 2);
-        Boss GumDropMan = new Boss("Gumdrop Man", 2, 5);
-        Boss LordLicorice = new Boss("Lord Licorice", 4, 3);
-        Boss PrincessFrostine = new Boss("Princess Frostine", 5, 5);
+        Boss GingerbreadMan = new Boss("Gingerbread Man", 2, 2);
+        Boss CandyCaneMan = new Boss("Candy Cane Man", 3, 3);
+        Boss GumDropMan = new Boss("Gumdrop Man", 4, 5);
+        Boss LordLicorice = new Boss("Lord Licorice", 5, 6);
+        Boss PrincessFrostine = new Boss("Princess Frostine", 6, 10);
 
         // create controls
         Controls Controls = new Controls();
@@ -31,6 +31,9 @@ public class CandyLand {
 
         // main game loop
         while (playing) {
+            //if player is alive
+            if (player.life > 0) {
+
             // check if player in end game
             if (player.location == 50) {
                 // initalize end game
@@ -135,6 +138,12 @@ public class CandyLand {
                 System.out.println("Please type either 'draw' or 'quit' to continue. \n");
             }
         } 
+        //if player is dead
+        else {
+            System.out.println("Game over! You died.");
+            break;
+        }
+    }
         // close scanner
         sc.close();
     }
