@@ -27,7 +27,7 @@ public class CandyLand {
         Scanner sc = new Scanner(System.in);
 
         // turn message w/ instructions
-        System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
+        System.out.println("Input 'draw' to draw a card, input 'quit' to end game. \n");
 
         // main game loop
         while (playing) {
@@ -61,7 +61,26 @@ public class CandyLand {
                 if (player.location == 11 || player.location == 31) {
                     System.out.println("You have landed on a rainbow bridge! You advance 10 squares."); //print lines for readability
                     player.location += 10;
-                    System.out.println("You are now at tile " + player.location + ". Input 'draw' to continue, input 'quit' to end game.");
+                    System.out.println("You are now at tile " + player.location + ". Input 'draw' to continue, input 'quit' to end game. \n");
+                }
+
+                //licorice squares
+                if (player.location % 7 == 0)  {
+                    System.out.println("You have landed on a licorice square! Type 'life' to lose 5 life or 'move' to go back 10 squares. \n");
+                    String licoriceChoice = sc.nextLine();
+                    if (licoriceChoice.equals("life")) {
+                        player.life -= 5;
+                        System.out.println("Your life is now " + player.life + ". Input 'draw' to continue, input 'quit' to end game. \n");
+                    }
+                    else if (licoriceChoice.equals("move")) {
+                        player.location -= 10;
+                        System.out.println("Your location is now " + player.location + ". Input 'draw' to continue, input 'quit' to end game.\n");
+                    }
+                    else {
+                        System.out.println("You did not enter life or move. Therefore, you lose 5 life and go back 10 squares. Input 'draw' to continue, input 'quit' to end game.\n");
+                        player.life -= 5;
+                        player.location -= 10;
+                    }
                 }
 
                 // candy cane
@@ -113,7 +132,7 @@ public class CandyLand {
             
             // typo catcher
             else {
-                System.out.println("Please type either 'draw' or 'quit' to continue.");
+                System.out.println("Please type either 'draw' or 'quit' to continue. \n");
             }
         } 
         // close scanner
