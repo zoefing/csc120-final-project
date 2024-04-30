@@ -100,17 +100,21 @@ public class Boss {
         System.out.println("Would you like to fight? Type 'yes' or 'no' to make your decision.");
         Scanner sc = new Scanner(System.in);
         String fightQuestion = sc.nextLine();
-        
         // if player chooses to fight, call gingerbreadMan method
         if (fightQuestion.equals("yes")) {
+            // add space
             Controls Controls = new Controls();
             Controls.betweenLines();
+
+            // enter boss battle
             battleBoss(player);
         }
         // if player chooses not to fight, continue game
         else if (fightQuestion.equals("no")) {
             // print message
             System.out.println("You choose not to battle.");
+
+            // add space
             Controls Controls = new Controls();
             Controls.betweenLines();
 
@@ -118,9 +122,16 @@ public class Boss {
             System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
         }
         // typo catcher
-        // note: only works once for some reason?
         else {
+            // print statement
             System.out.println("Please type either 'yes' or 'no' to make your decision.");
+
+            // add space
+            Controls Controls = new Controls();
+            Controls.betweenLines();
+
+            // repeat
+            offerFight(player);
         }
     }
 
