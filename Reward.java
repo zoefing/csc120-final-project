@@ -35,7 +35,13 @@ public class Reward {
     public void rewardLocation(Player player) {
         // add locationGain to location
         player.location += locationGain;
-        System.out.println("You moved " + locationGain + " tiles! You are now at tile " + player.location + ".");
+        if (player.location >= 50) {
+            player.location = 50;
+        }
+
+        else {
+            System.out.println("You moved " + locationGain + " tiles! You are now at tile " + player.location + ".");
+        }
         
         // add space
         Controls Controls = new Controls();

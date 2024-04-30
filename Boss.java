@@ -18,8 +18,15 @@ public class Boss {
 
     // methods
     public void enterArea() {
-        System.out.println("You are in the territory of the " + name + "!");
-        flair();
+        // "the" doesn't sound right with some of the names
+        if (this.name != "Princess Frostine" && this.name != "Lord Licorice") {
+            System.out.println("You are in the territory of the " + name + "!");
+            flair();
+        }
+        else {
+            System.out.println("You are in the territory of " + name + "!");
+            flair();
+        }
     }
 
     public void flair() {
@@ -50,7 +57,13 @@ public class Boss {
             Controls.betweenLines();
         }
         else if (this.name.equals("Gumdrop Man")) {
-            System.out.println("");
+            System.out.println( "    ,---.\n" + //
+                                "   / o o \\\n" + //
+                                "  | o o o |\n" + //
+                                "   \\ o o /\n" + //
+                                "    `---'");
+            
+            // add space
             Controls Controls = new Controls();
             Controls.betweenLines();
         }
@@ -90,16 +103,19 @@ public class Boss {
         
         // if player chooses to fight, call gingerbreadMan method
         if (fightQuestion.equals("yes")) {
+            Controls Controls = new Controls();
+            Controls.betweenLines();
             battleBoss(player);
         }
         // if player chooses not to fight, continue game
         else if (fightQuestion.equals("no")) {
             // print message
             System.out.println("You choose not to battle.");
+            Controls Controls = new Controls();
+            Controls.betweenLines();
 
             // exit
-            Controls Controls = new Controls();
-            Controls.drawCard(player);
+            System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
         }
         // typo catcher
         // note: only works once for some reason?
@@ -155,10 +171,18 @@ public class Boss {
             player.lifeLost += damage;
 
             // print new life
-            System.out.println("New life: " + player.life);
+            System.out.println("Remaining life: " + player.life);
+
+            // add space
+            Controls.betweenLines();
             
             // exit
-            Controls.drawCard(player);
+            if (player.life <= 0) {
+                ;
+            }
+            else if (player.life > 0){
+                System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
+            }
         }
     }
 }
