@@ -20,11 +20,17 @@ public class Boss {
     public void enterArea() {
         // "the" doesn't sound right with some of the names
         if (this.name != "Princess Frostine" && this.name != "Lord Licorice") {
+            // print statement
             System.out.println("You are in the territory of the " + name + "!");
+            
+            // add boss flair
             flair();
         }
         else {
+            // print statement
             System.out.println("You are in the territory of " + name + "!");
+
+            // add boss flair
             flair();
         }
     }
@@ -97,11 +103,18 @@ public class Boss {
     }
 
     public void offerFight(Player player) {
+        // print statement
         System.out.println("Would you like to fight? Type 'yes' or 'no' to make your decision.");
+        
+        // make a new scanner
         Scanner sc = new Scanner(System.in);
         String fightQuestion = sc.nextLine();
+        
         // if player chooses to fight, call gingerbreadMan method
         if (fightQuestion.equals("yes")) {
+            // increment amount of boss battles attempted
+            player.bossBattlesAttempted += 1;
+
             // add space
             Controls Controls = new Controls();
             Controls.betweenLines();
@@ -119,7 +132,12 @@ public class Boss {
             Controls.betweenLines();
 
             // exit
-            System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
+            if (player.location < 50) {
+                System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
+            }
+            else if (player.location >= 50) {
+                ;
+            }
         }
         // typo catcher
         else {
@@ -176,6 +194,13 @@ public class Boss {
 
             // subtract from life
             player.life -= damage;
+
+            // if life is negative, set to 0
+            if (player.life < 0) {
+                player.life = 0;
+            }
+
+            // print damage taken
             System.out.println("-" + damage + " life...");
 
             // add to life lost
@@ -188,9 +213,13 @@ public class Boss {
             Controls.betweenLines();
             
             // exit
+
+            // if player has no life, print nothing
             if (player.life <= 0) {
                 ;
             }
+
+            // if player has life, print draw card statement
             else if (player.life > 0){
                 System.out.println("Input 'draw' to draw a card, input 'quit' to end game.");
             }
