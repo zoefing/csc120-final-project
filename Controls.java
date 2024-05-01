@@ -72,49 +72,68 @@ public class Controls {
     }
 
     public void achievements(Player player) {
-        // print achievements
-        System.out.println("\n🏆 Achievements 🏆");
-        
         // initialize achievements
         int achievementsUnlocked = 0;
 
-        // print achievements based on player stats
+        // checking if player has unlocked any achievements to determine if "🏆 Achievements 🏆" should be printed
+
+        // check for default achievement: beat game
+        if (player.life > 0 && player.location == 50) {
+            // increment achievements
+            achievementsUnlocked += 1;
+        }
+
+        // if player has unlocked achievements
+        // print "🏆 Achievements 🏆"
+        else if (achievementsUnlocked >= 1) {
+            // print statement
+            System.out.println("\n🏆 Achievements 🏆");
+        }
 
         // default achievement: beat game
-        System.out.println("🌟 Winner 🌟 : You beat the game");
-
-        // increment achievements
-        achievementsUnlocked += 1;
-
+        if (player.life > 0 && player.location == 50) {
+            System.out.println("🌟 Winner 🌟 : You beat the game");
+        }
+        
         // check if player has unlocked other achievements
 
         // traveled over 50 squares
         if (player.locationGained >= 50) {
+            // print statement
             System.out.println("🗺️ Long Journey 🚶🗺️ : You traveled a great distance");
+            // increment achievements
             achievementsUnlocked += 1;
         }
 
         // attempted to fight at least 5 bosses
         if (player.bossBattlesAttempted >= 5) {
+            // print statement
             System.out.println("🛡️ Brave Warrior 🛡️ : You attempted to fight at least 5 bosses");
+            // increment achievements
             achievementsUnlocked += 1;
         }
 
         // beat all bosses
         if (player.bossesKilled == 5) {
+            // print statement
             System.out.println("🗡️ Valiant Fighter 🗡️ : You defeated all of the bosses");
+            // increment achievements
             achievementsUnlocked += 1;
         }
 
         // lose no life
         if (player.lifeLost == 0) {
+            // print statement
             System.out.println("🏥 So Healthy! 🏥 : You did not lose any life in your travels");
+            // increment achievements
             achievementsUnlocked += 1;
         }
 
         // beat all bosses without losing life
         if (player.bossesKilled == 5 && player.lifeLost == 0) {
+            // print statement
             System.out.println("👑 God Amongst Mortals 👑 : You have defeated all the bosses and did not lose any life in the process");
+            // increment achievements
             achievementsUnlocked += 1;
         }
 
@@ -125,34 +144,46 @@ public class Controls {
 
             // if 1
             if (shameQuestionMark == 1) {
+                // print statement
                 System.out.println("🫣 The Cowards Path 🫣 : You battled no bosses");
+                // increment achievements
                 achievementsUnlocked += 1;
             }
 
             // if 2
             else if (shameQuestionMark == 2) {
+                // print statement
                 System.out.println("🙏 Pacifist 🙏 : You battled no bosses ");
+                // increment achievements
                 achievementsUnlocked += 1;
             }
         }
 
-        // blank line
-        System.out.println("");
-
         // print achievements unlocked
 
-        // no achievements unlocked
+        // if player has not unlocked any achievements
         if (achievementsUnlocked == 0) {
+            // add space
+            betweenLines();
+
+            // print statement
             System.out.println("🔒 No Achievements Unlocked 🔒");
+
+            // add space
+            betweenLines();
         }
 
         // achievements unlocked
-        else {
-            System.out.println("Achievements unlocked: " + achievementsUnlocked + " out of 7");
-        }
+        if (achievementsUnlocked >= 1) {
+            // add space
+            betweenLines();
 
-        // blank line
-        System.out.println("");
+            // print statement
+            System.out.println("Achievements unlocked: " + achievementsUnlocked + " out of 7");
+
+            // add space
+            betweenLines();
+        }
     }
     
     // pretty formatting

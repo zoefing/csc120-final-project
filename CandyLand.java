@@ -9,11 +9,17 @@ public class CandyLand {
         // initialize game
         boolean playing = true;
 
-        // indent
-        System.out.println("");
+        // create controls
+        Controls Controls = new Controls();
+
+        // add space
+        Controls.betweenLines();
 
         // welcome message
         System.out.println("Welcome to CandyLand!");
+
+        // add space
+        Controls.betweenLines();
 
         // create player
         Player player = new Player("Player", 5, 0);
@@ -24,9 +30,6 @@ public class CandyLand {
         Boss GumDropMan = new Boss("Gumdrop Man", 4, 5);
         Boss LordLicorice = new Boss("Lord Licorice", 5, 6);
         Boss PrincessFrostine = new Boss("Princess Frostine", 6, 10);
-
-        // create controls
-        Controls Controls = new Controls();
 
         // create scanner
         Scanner sc = new Scanner(System.in);
@@ -165,10 +168,17 @@ public class CandyLand {
                         if (licoriceChoice.equals("life")) {
                             // decrement life
                             player.life -= 5;
+
+                            if (player.life <= 0) {
+                                player.life = 0;
+                            }
                             
                             // print statement
                             System.out.println("Your life is now " + player.life + ".");
                             
+                            // add space
+                            Controls.betweenLines();
+
                             // check for player death
                             if (player.life <= 0) {
                                 ;
@@ -322,6 +332,10 @@ public class CandyLand {
         else if (player.life <= 0) {
             // print statement
             System.out.println("Game over! You died.");
+
+            // end game functions
+            Controls.leaderboard(player);
+            Controls.achievements(player);
 
             // end game
             break;
