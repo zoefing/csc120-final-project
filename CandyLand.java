@@ -2,9 +2,18 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
+/**
+ * the CandyLand class is the main class for the game
+ * this class contains no constructors, variables, or methods unique to the class
+ * this class contains the main game loop
+ */
 public class CandyLand {
-
-    //main
+    /**
+    * the main method is the main game loop
+    * this method initializes the game, creates the player and bosses, and contains the main game loop
+    * the contained main game loop checks for player input and runs the game accordingly
+    * @param args
+   */
     public static void main(String[] args) {
         // initialize game
         boolean playing = true;

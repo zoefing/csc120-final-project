@@ -8,7 +8,7 @@ ___YES__ 2 pts: Storyline driving the game is **engaging**, and individual eleme
 
 ___YES__ 2 pts: Game has **multiple possible paths / outcomes** (i.e. gameplay depends on player's choices and is not the same every time).
 
-__YES___ 1 pt: Gameplay supports **reversible moves** where reasonable (e.g., if you pick up an object, you should be able to put it back down again later, possibly in a different place; if you go north then you should be able to return to the previous location by going south unless something has blocked your return path).
+___YES__ 1 pt: Gameplay supports **reversible moves** where reasonable (e.g., if you pick up an object, you should be able to put it back down again later, possibly in a different place; if you go north then you should be able to return to the previous location by going south unless something has blocked your return path).
 
 ___YES__ 1 pt: Some paths through the game have **restricted access** until the player has completed a task or acquired a specific item (i.e. a key to open a door, etc.).
 
@@ -31,9 +31,9 @@ ___YES__ 4 pts: Program compiles without errors or warnings.
 
 ___YES__ 2 pts: Executes fully & consistently without crashing (exception/freeze).
 
-___not yet!__ 2 pt: Complies with style guidelines (missing items 1 pt each):
+___YES__ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      ___NO__ Classes & class members all have Javadoc header comments.
+      ___YES__ Classes & class members all have Javadoc header comments.
 
       ___YES__ Clear and consistent indentation of bracketed sections.
 
